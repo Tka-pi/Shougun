@@ -249,7 +249,7 @@ function eval(){
     
     
 
-    var model_burst=def*(1+z*flag+90*beta+u_burst)*B0(n)+def*(1+z*flag+Energy*beta+u_burst)*n_heavy*B(n);
+    var model_burst=def*(1+z*flag+90*beta+u_burst)*B0(n)+def*(1+z*flag+90*beta+u_burst)*n_heavy*B(n);
     var model_skill=(t-7+7*def)/0.9*skill[talent2-6];
 
 
@@ -272,7 +272,7 @@ weapon_rank=Number($("#weapon_rank").val());
 t=Number($("#t").val());
 n=Number($("#desire").val());
 n_heavy=Number($("#n_heavy").val());
-orb=Number($("#orb").val());
+orb=0;
 uATK=Number($("#u_ATK").val());
 u_ATKrate=Number($("#u_ATKrate").val());
 u_CRIT=Number($("#u_CRIT").val());
