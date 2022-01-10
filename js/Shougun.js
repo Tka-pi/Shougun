@@ -191,7 +191,7 @@ function eval(){
         return 1+(5+u_CRIT+CRIT+c)*0.01*(50+u_CRITd+CRITd)*0.01;
     }
     var total_charge=(100+base_C+charge)*0.01;
-    var total_electro=1+(electro+u_electro)*0.01+(total_charge-1)*0.4;
+    var total_electro=(electro+u_electro)*0.01+(total_charge-1)*0.4;
 
     var kusa=(total_charge-1)*ACrate;
     if (kusa>=atk_limit){
@@ -249,15 +249,15 @@ function eval(){
     
     
 
-    var model_burst=def*(1+z*flag+90*beta+u_burst)*B0(n)+def*(1+z*flag+90*beta+u_burst)*n_heavy*B(n);
-    var model_skill=(t-7+7*def)/0.9*skill[talent2-6];
+    var model_burst=def*(1+z*flag+90*beta+u_burst+total_electro)*(B0(n)+n_heavy*B(n));
+    var model_skill=(t-7+7*def)/0.9*skill[talent2-6]*(1+total_electro);
 
 
 
     console.log(skill[talent2-6],one[t3],one_up[t3],heavy[t3],heavy_up[t3]);
     //正常
 
-    return total_electro*total_ATK*(model_skill*crit(0)+model_burst*crit(burst_CRIT));
+    return total_ATK*(model_skill*crit(0)+model_burst*crit(burst_CRIT));
 }
 
 
